@@ -1,9 +1,15 @@
 <head>
+    <!--Normal SEO Meta-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="keywords" content="<%= page?.keywords || config?.keywords || 'Hexo Theme Keep' %>">
     <meta name="description" content="<%= page?.description || config?.description || 'Hexo Theme Keep' %>">
+    <meta name="image" content="<%= page?.thumbnail || config?.defaultthumb || 'https://picsum.photos/200/300' %>">
     <meta name="author" content="<%= theme?.base_info?.author || config?.author || 'Keep Team' %>">
+
+    <!--Open Graph SEO Meta-->
+    <meta property="og:description" content="<%= page?.description || config?.description || 'Hexo Theme Keep' %>" />
+    <meta property="og:image" content="<%= page?.thumbnail || config?.defaultthumb || 'https://picsum.photos/200/300' %>" />
     <%
     let title = page.title;
     if (is_archive()) {
