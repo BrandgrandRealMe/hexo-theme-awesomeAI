@@ -8,27 +8,13 @@ function initPostShareHelper() {
 
       const shareContainer = document.querySelector('.post-share-container .share-list-wrap')
 
-      // WeChat share
-      const wechatShare = shareContainer.querySelector('.wechat')
-      wechatShare &&
-        wechatShare.setAttribute(
-          'data-tooltip-img-url',
-          `https://api.qrserver.com/v1/create-qr-code?data=${pageUrl}`
-        )
-
       shareContainer.querySelectorAll('.share-item').forEach((item) => {
         item.addEventListener('click', () => {
-          // QQ share
-          if (item.classList.contains('qq')) {
-            window.open(`https://connect.qq.com/widget/shareqq/index.html?url=${pageUrl}`)
+          // X share
+          if (item.classList.contains('x')) {
+            window.open(`https://x.com/intent/tweet?url=${pageUrl}`)
           }
 
-          // WeiBo share
-          if (item.classList.contains('weibo')) {
-            window.open(
-              `https://service.weibo.com/share/share.php?url=${pageUrl}&title=${pageTitle}`
-            )
-          }
         })
       })
     }
