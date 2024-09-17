@@ -6,10 +6,12 @@ const {
     category: giscus_category,
     category_id: giscus_category_id,
     reactions_enabled: giscus_reactions_enabled,
+    theme_light: giscus_theme_light,
+    theme_dark: giscus_theme_dark,
 } = theme?.comment?.giscus || {}
 const giscus_language = config?.language || 'zh-CN'
 %>
-<% if (giscus_repo && giscus_repo_id && giscus_category && giscus_category_id) { %>
+<% if (giscus_repo && giscus_repo_id && giscus_category && giscus_category_id && giscus_theme_dark && giscus_theme_light) { %>
     <div class="giscus-comments-container">
         <div class="giscus" id="giscus"></div>
         <script <%= pjax_enable === true ? 'data-pjax' : '' %>
@@ -17,7 +19,7 @@ const giscus_language = config?.language || 'zh-CN'
         >
           if (!window.KeepCommentPlugin?.getGiscusTheme) {
             window.KeepCommentPlugin.getGiscusTheme = () => {
-              return document.documentElement.classList.contains('dark-mode') ? 'dark_dimmed' : 'light_tritanopia'
+              return document.documentElement.classList.contains('dark-mode') ? `<%= giscus_theme_light %>` : `<%= giscus_theme_dark %>`
             }
           }
 

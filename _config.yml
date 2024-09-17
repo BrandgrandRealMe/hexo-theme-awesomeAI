@@ -140,7 +140,7 @@ post:
     min2read: true      # Time to read, one post. Option values: true | false
 
   # Post datetime
-  datetime_format: "MM/DD/YYYY HH:mm:ss"  # Datetime format. e.g. "YYYY-MM-DD HH:mm:ss"
+  datetime_format: "MMMM DD, YYYY hh:mm a"  # Datetime format. e.g. "YYYY-MM-DD HH:mm:ss"
 
   # Post copyright info
   copyright_info: false  # Option values: true | false
@@ -152,7 +152,7 @@ post:
   reward:
     enable: false        # Option values: true | false
     img_link:            # Image link for the payment QR code
-    text:                # Custom reward text, Can be null
+    text: "Donate :)"           # Custom reward text, Can be null
     icon:                # Custom reward icon, Can be null
 
 
@@ -213,8 +213,8 @@ local_search:
 # Docs: https://keep-docs.xpoet.cn/basis/configuration-guide/comment.html
 # ---------------------------------------------------------------------------------------
 comment:
-  enable: false   # Option values: true | false
-  use: valine     # Option values: valine | gitalk | twikoo | waline | giscus | artalk | disqus
+  enable: true   # Option values: true | false
+  use: giscus     # Option values: valine | gitalk | twikoo | waline | giscus | artalk | disqus
 
   # Valine
   # See: https://github.com/xCss/Valine
@@ -257,11 +257,13 @@ comment:
   #      https://giscus.app
   # Please generate your configuration items in https://giscus.app
   giscus:
-    repo:
-    repo_id:
-    category: Announcements    # Recommend use Announcements
-    category_id:
-    reactions_enabled: false   # Option values: true | false
+    theme_dark: "transparent_dark"
+    theme_light: "light"
+    repo: BrandgrandRealMe/AwesomeAIBlog
+    repo_id: R_kgDOKv4FtQ
+    category: General    # Recommend use Announcements
+    category_id: DIC_kwDOKv4Ftc4CijT5
+    reactions_enabled: true   # Option values: true | false
 
   # Artalk
   # See: https://github.com/ArtalkJS/Artalk
