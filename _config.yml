@@ -9,7 +9,7 @@
 # ---------------------------------------------------------------------------------------
 base_info:
   # Theme primary color
-  primary_color: "#0066cc"
+  primary_color: "#ffd700ff"
 
   # Blog website title
   title: AwesomeAI
@@ -21,10 +21,10 @@ base_info:
   avatar: images/PFP.png
 
   # Website LOGO, You can use local image path or image link
-  logo: images/logo.png
+  logo: images/logo.svg
 
   # Website favicon, You can use local image path or image link
-  favicon: images/logo.png
+  favicon: images/logo.svg
 
 
 # ---------------------------------------------------------------------------------------
