@@ -40,7 +40,7 @@ menu:
   # categories: /categories     # || fa-solid fa-layer-group
   links: /links               # || fa-solid fa-link
   # photos: /photos             # || fa-solid fa-image
-  # tools: /tools               # || fa-solid fa-tools
+  our links: /ourlinks               # || fa-solid fa-tools
   # about: /about               # || fa-solid fa-user-graduate
   # ......
 
