@@ -34,14 +34,17 @@ base_info:
 # e.g. to enable categories, you need to execute `hexo new page categories`
 # Use `||` to set icon for navigation menu, e.g. `home: / || fa-solid fa-home`
 menu:
-  home: /                       # || fa-solid fa-home
-  # archives: /archives           # || fa-solid fa-box-archive
-  # tags: /tags                 # || fa-solid fa-tags
-  # categories: /categories     # || fa-solid fa-layer-group
-  links: /links               # || fa-solid fa-link
+  home: / || fa-solid fa-home
+  Explore:
+    icon: fa-solid fa-book
+    children:
+      - archives: /archives || fa-solid fa-box-archive
+      - tags: /tags || fa-solid fa-tags
+      - categories: /categories || fa-solid fa-layer-group
+  links: /links || fa-solid fa-link
   # photos: /photos             # || fa-solid fa-image
-  our links: /ourlinks               # || fa-solid fa-tools
-  # about: /about               # || fa-solid fa-user-graduate
+  socials: /socials || fa-solid fa-hashtag
+  about: /about || fa-solid fa-lightbulb
   # ......
 
 
@@ -105,10 +108,10 @@ scroll:
 # ---------------------------------------------------------------------------------------
 home:
   # Website announcement in home page
-  announcement:
+  announcement: 'New look same stuff! This site is still being updated to look better. Click [here](https://bsky.app/profile/awesomeai.bsky.social/post/3l4mbi4rvjk2y) for more info.'
 
   # Show category in home page post block
-  category: false           # Option values: true | false
+  category: true           # Option values: true | false
 
   # Show tags in home page post block
   tag: false                # Option values: true | false
@@ -318,7 +321,7 @@ footer:
   site_deploy:
     enable: true        # Option values: true | false
     provider: cloudflare     # Option values: github | vercel | netlify | cloudflare | gitee | aliyun | tencent_cloud | upyun
-    url:                 # Your deployment provider url, Can be null
+    url: https://developers.cloudflare.com/pages/framework-guides/deploy-anything/               # Your deployment provider url, Can be null
 
   record:
     enable: false        # Option values: true | false
