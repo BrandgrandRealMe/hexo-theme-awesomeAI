@@ -9,7 +9,6 @@
     <meta property="article:author" content="<%= page?.author || theme?.base_info?.author || config?.author || 'Keep Team' %>"/>
 
     <!--Open Graph SEO Meta-->
-    <meta property="og:title" content="<%= theme?.base_info?.title || config?.title || 'Keep Theme' %>"/>
     <% if (theme?.base_info?.primary_color) { %>
       <meta name="theme-color" content="<%= theme?.base_info?.primary_color %>">
     <% } %>
@@ -32,6 +31,12 @@
         title = __(page.title);
     }
     %>
+    <% if (title) { %>
+      <meta property="og:title" content="<%= title %> | <%= theme?.base_info?.title || config?.title || 'Keep Theme' %>"/>
+    <% } else {  %>
+      <meta property="og:title" content="<%= theme?.base_info?.title || config?.title || 'Keep Theme' %>"/>
+    <% } %>
+
     <title>
         <% if (title) { %>
             <%= title %> |
