@@ -18,7 +18,7 @@ base_info:
   author: BrandgrandReal
 
   # Author avatar, You can use local image path or image link
-  avatar: images/PFP.png
+  avatar: images/avatars/BrandgrandReal.png
 
   # Website LOGO, You can use local image path or image link
   logo: images/logo.svg
