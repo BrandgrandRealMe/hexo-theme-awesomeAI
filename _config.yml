@@ -320,8 +320,9 @@ footer:
 
   site_deploy:
     enable: true        # Option values: true | false
-    provider: cloudflare     # Option values: github | vercel | netlify | cloudflare | gitee | aliyun | tencent_cloud | upyun
+    provider: cloudflare     # Option values: github | vercel | netlify | cloudflare
     url: https://developers.cloudflare.com/pages/framework-guides/deploy-anything/               # Your deployment provider url, Can be null
+    svg: true
 
   record:
     enable: false        # Option values: true | false
