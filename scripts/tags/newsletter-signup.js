@@ -1,0 +1,72 @@
+'use strict'
+// {% ns [formURL] [captchaSiteKey] [formTitle] [emailLabel] [submitButtonText] %}
+// {% endns %}
+
+module.exports = () =>
+  function (args, content) {
+    const validTypes = ['keila']
+
+    var type = null
+    if (args[0] && validTypes.includes(args[0])) {
+      type = args[0]
+    } else {
+      return null
+    }
+
+    var formURL = null
+    if (args[1]) {
+      formURL = args[1]
+    } else {
+      return null
+    }
+
+    let captchaSiteKey = null
+    if (args[2]) {
+      captchaSiteKey = args[2]
+    } else {
+      return null
+    }
+
+    let formTitle = 'Subscribe to our newsletter!'
+    if (args[3]) {
+      sizeClass = args[3]
+    }
+
+    let emailLabel = 'Email Address'
+    if (args[4]) {
+      emailLabel = args[4]
+    }
+
+    let submitButtonText = 'Subscribe'
+    if (args[5]) {
+      submitButtonText = args[5]
+    }
+
+    if (type == "keila") {
+      return `
+<form action="${formURL}" class="newsletter-form" method="post">
+   <h1 class="form-title">
+      ${formTitle}
+   </h1>
+   <div class="form-group">
+      <label for="contact_email">
+         ${emailLabel}
+      </label>
+      <input id="contact_email" name="contact[email]" type="email"/>
+   </div>
+   <div class="captcha-container">
+      <div class="h-captcha" data-sitekey="${captchaSiteKey}" data-theme="dark"></div>
+      <script async defer src="https://hcaptcha.com/1/api.js"></script>
+   </div>
+   <div class="button-container">
+      <button class="submit-button">
+         ${submitButtonText}
+      </button>
+   </div>
+   <div class="fineprint">
+   ${content}
+   </div>
+</form>
+    `
+    }
+  }

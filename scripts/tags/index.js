@@ -11,3 +11,7 @@ hexo.extend.tag.register('btn', buttonTag, true)
 
 const tabsTag = require('./tabs')(hexo)
 hexo.extend.tag.register('tabs', tabsTag, true)
+
+const newsletterSignupTag = require('./newsletter-signup')(hexo)
+hexo.extend.tag.register('newsletter-signup', newsletterSignupTag, true)
+hexo.extend.tag.register('ns', newsletterSignupTag, true)
