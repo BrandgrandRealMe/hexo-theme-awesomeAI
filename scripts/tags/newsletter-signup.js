@@ -1,10 +1,10 @@
 'use strict'
-// {% ns [formURL] [captchaSiteKey] [formTitle] [emailLabel] [submitButtonText] %}
+// {% ns [type] [formURL] [captchaSiteKey] [formTitle] [emailLabel] [submitButtonText] %}
 // {% endns %}
 
 module.exports = () =>
   function (args, content) {
-    const validTypes = ['keila']
+    const validTypes = ['keila', 'plunk']
 
     var type = null
     if (args[0] && validTypes.includes(args[0])) {
@@ -42,6 +42,11 @@ module.exports = () =>
       submitButtonText = args[5]
     }
 
+    let acceptedMessage = 'You successfully subscribed! Thank you!'
+    if (args[6]) {
+      acceptedMessage = args[6]
+    }
+
     if (type == "keila") {
       return `
 <form action="${formURL}" class="newsletter-form" method="post">
@@ -68,5 +73,23 @@ module.exports = () =>
    </div>
 </form>
     `
+    } else if (type == "plunk") {
+      return `
+    <form class="newsletter-form" id="newsletterForm">
+        <h1 class="form-title">${formTitle}</h1>
+        <div class="form-group">
+            <label for="contact_email">${emailLabel}</label>
+            <input id="contact_email" name="contact[email]" type="email" required/>
+        </div>
+        <div class="button-container">
+            <button type="submit" class="submit-button">${submitButtonText}</button>
+        </div>
+        <div class="accepted-msg" id="accepted-msg" style="visibility: hidden" >${acceptedMessage}</div>
+        <div class="fineprint">${content}</div>
+        <input type="hidden" id="apiToken" data-token="${formURL}">
+    </form>
+    `
+    } else {
+      return `<form class="newsletter-form" id="newsletterForm"><h1 class="form-title">PLEASE PROVIDE SETTINGS!</h1></form>`
     }
   }
