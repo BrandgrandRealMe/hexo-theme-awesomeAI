@@ -13,7 +13,7 @@ document.getElementById('newsletterForm').addEventListener('submit', function(e)
           'Authorization': 'Bearer ' + apiToken
               },
       body: JSON.stringify({
-          "event": "subscription",
+          "event": "user-signup",
           "email": email,
           "subscribed": true,
           "data": {}
