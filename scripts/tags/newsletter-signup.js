@@ -47,6 +47,11 @@ module.exports = () =>
       acceptedMessage = args[6]
     }
 
+    let errorMessage = 'An error occurred. Please try again later.'
+    if (args[7]) {
+      errorMessage = args[7]
+    }
+
     if (type == "keila") {
       return `
 <form action="${formURL}" class="newsletter-form" method="post">
@@ -75,6 +80,7 @@ module.exports = () =>
     `
     } else if (type == "plunk") {
       return `
+    <script src="https://www.google.com/recaptcha/api.js?onload=onCaptchaLoad&render=${captchaSiteKey}"></script>
     <form class="newsletter-form" id="newsletterForm">
         <h1 class="form-title">${formTitle}</h1>
         <div class="form-group">
@@ -82,9 +88,9 @@ module.exports = () =>
             <input id="contact_email" name="contact[email]" type="email" required/>
         </div>
         <div class="button-container">
-            <button type="submit" class="submit-button">${submitButtonText}</button>
+            <button type="submit" class="g-recaptcha submit-button" data-callback='onSubmit' data-action='submit' id="submit-button" data-sitekey="${captchaSiteKey}">${submitButtonText}</button>
         </div>
-        <div class="accepted-msg" id="accepted-msg" style="visibility: hidden" >${acceptedMessage}</div>
+        <div class="msg" id="msg" style="visibility: hidden" data-accepted="${acceptedMessage}" data-error="${acceptedMessage}"></div>
         <div class="fineprint">${content}</div>
         <input type="hidden" id="apiToken" data-token="${formURL}">
     </form>
