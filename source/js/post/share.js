@@ -15,6 +15,21 @@ function initPostShareHelper() {
             window.open(`https://x.com/intent/tweet?url=${pageUrl}`)
           }
 
+          // Reddit share
+          if (item.classList.contains('reddit')) {
+            window.open(`https://reddit.com/submit?url=${pageUrl}`)
+          }
+
+          // Pinterest share
+          if (item.classList.contains('pinterest')) {
+            window.open(`https://pinterest.com/pin/create/link/?url=${pageUrl}`)
+          }
+
+          // Pinterest share
+          if (item.classList.contains('bluesky')) {
+            window.open(`https://bsky.app/intent/compose?text=${pageUrl}`)
+          }
+
         })
       })
     }
